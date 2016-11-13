@@ -19,8 +19,6 @@ out of the database.  After each one of those options, you will be able to
 choose to continue manipulating the database in that way, or exit to the main
 menu.
 
-1) Option
-
 The last option is to exit the database.
 
 This assignment was designed to practice SQL and Python integration, and will

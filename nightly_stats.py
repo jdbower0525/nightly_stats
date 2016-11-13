@@ -42,7 +42,7 @@ def add_day():
     except:
         print("That is an invalid input.")
         add_day()
-    redirect = input("Would you like to add another day"
+    redirect = input("Would you like to add another day "
                      "(a) or return to the main menu (m)? ")
     if redirect == 'a':
         add_day()
@@ -52,7 +52,7 @@ def add_day():
 
 def search_database():
     clear()
-    first_search = input("Would you like to search (s) for a specific"
+    first_search = input("Would you like to search (s) for a specific "
                          "rows or see a ranking (r)? ")
     if first_search == 'r':
         ranking()
@@ -90,7 +90,7 @@ What would you like a ranking on?
                    headers=['Date', 'Day', 'Sales', 'Manager', 'Lunch Sales',
                             'LBW %', 'Takeaway Sales', 'Grill',
                             'Prime Accuracy', 'HW', 'Drop +/-']))
-    redirect = input("Would you like to see another ranking (r)"
+    redirect = input("Would you like to see another ranking (r) "
                      "or return to the main menu (m)? ")
     if redirect == 'r':
         ranking()
@@ -111,27 +111,27 @@ What column would you like to search for?
 
 >>> """)
         if search_input == '1':
-            row_search = input("Which date would you"
+            row_search = input("Which date would you "
                                "like to search form (YYYY-MM-DD)? "
                                ).capitalize()
             search = 'target_date'
         elif search_input == '2':
-            row_search = input("Which day of the week would"
+            row_search = input("Which day of the week would "
                                "you like to search for? "
                                ).capitalize()
             search = 'day'
         elif search_input == '3':
-            row_search = input("Which of the closing managers"
+            row_search = input("Which of the closing managers "
                                "would you like to search for? "
                                ).capitalize()
             search = 'closing_manager'
         elif search_input == '4':
-            row_search = input("What grill worker would"
+            row_search = input("What grill worker would "
                                "you like to search for? "
                                ).capitalize()
             search = 'grill'
         elif search_input == '5':
-            row_search = input("Which HW would you like"
+            row_search = input("Which HW would you like "
                                "to search for? "
                                ).capitalize()
             search = 'hw'
@@ -145,7 +145,7 @@ What column would you like to search for?
                    headers=['Date', 'Day', 'Sales', 'Manager', 'Lunch Sales',
                             'LBW %', 'Takeaway Sales', 'Grill',
                             'Prime Accuracy', 'HW', 'Drop +/-']))
-    redirect = input("Would you like to search for something else"
+    redirect = input("Would you like to search for something else "
                      "(s) or return to the main menu (m)? ")
     if redirect == 's':
         search_row()
@@ -175,7 +175,7 @@ def delete_row():
     del_input = input("Which row (by ID) would you like to delete? ")
     sql = "DELETE FROM nightly_stats WHERE id = %s"
     cur.execute(sql, (del_input,))
-    redirect = input("Would you like to delete another day (d)"
+    redirect = input("Would you like to delete another day (d) "
                      "or return to the main menu (m)? ")
     if redirect == 'd':
         clear()
