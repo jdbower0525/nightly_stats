@@ -1,4 +1,4 @@
-## README ##
+## NIGHTLY STATS ##
 
 This database program is meant to be used nightly to organize the closing
 information that a restaurant manager has to record every night.  The purpose
@@ -18,6 +18,8 @@ values contained in each row.  Finally you also have the option to delete a row
 out of the database.  After each one of those options, you will be able to
 choose to continue manipulating the database in that way, or exit to the main
 menu.
+
+1) Option
 
 The last option is to exit the database.
 

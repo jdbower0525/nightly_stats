@@ -22,7 +22,8 @@ def add_day():
         new_day = input("What day of the week is it? ").capitalize()
         new_sales = int(input("What were the sales for that day? "))
         new_lunch = int(input("What were the lunch sales of that day? "))
-        new_closing_manager = input("Who is the closing manager this day? ").capitalize()
+        new_closing_manager = input("Who is the closing manager this day? "
+                                    ).capitalize()
         new_lbw = float(input("What was your LBW on that day? "))
         new_ta = input("What were the takeaway sales of this day? ")
         new_grill = input("Who was on grill? ").capitalize()
@@ -33,22 +34,26 @@ def add_day():
                     closing_manager, lunch_sales, lbw, takeaway,
                     grill, prime_acc, hw, drop)
                     VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"""
-        cur.execute(new_row,
-        (datetime.date(new_year, new_month, new_date), new_day, new_sales,
-                    new_closing_manager, new_lunch, new_lbw, new_ta, new_grill, new_prime, new_hw, new_drop))
+        cur.execute(new_row, (datetime.date(new_year, new_month,
+                              new_date), new_day, new_sales,
+                              new_closing_manager, new_lunch, new_lbw, new_ta,
+                              new_grill, new_prime, new_hw, new_drop))
         conn.commit()
     except:
         print("That is an invalid input.")
         add_day()
-    redirect = input("Would you like to add another day (a) or return to the main menu (m)? ")
+    redirect = input("Would you like to add another day"
+                     "(a) or return to the main menu (m)? ")
     if redirect == 'a':
         add_day()
     else:
         initial_input()
 
+
 def search_database():
     clear()
-    first_search = input("Would you like to search (s) for a specific rows or see a ranking (r)? ")
+    first_search = input("Would you like to search (s) for a specific"
+                         "rows or see a ranking (r)? ")
     if first_search == 'r':
         ranking()
     else:
@@ -81,8 +86,12 @@ What would you like a ranking on?
         search = 'drop'
     sql = "SELECT * from nightly_stats order by " + search + " desc"
     cur.execute(sql, (search,))
-    print(tabulate(cur, tablefmt="fancy_grid", headers=['Date', 'Day', 'Sales', 'Manager', 'Lunch Sales', 'LBW %', 'Takeaway Sales', 'Grill', 'Prime Accuracy', 'HW', 'Drop +/-']))
-    redirect = input("Would you like to see another ranking (r) or return to the main menu (m)? ")
+    print(tabulate(cur, tablefmt="fancy_grid",
+                   headers=['Date', 'Day', 'Sales', 'Manager', 'Lunch Sales',
+                            'LBW %', 'Takeaway Sales', 'Grill',
+                            'Prime Accuracy', 'HW', 'Drop +/-']))
+    redirect = input("Would you like to see another ranking (r)"
+                     "or return to the main menu (m)? ")
     if redirect == 'r':
         ranking()
     else:
@@ -148,7 +157,10 @@ def view_database():
     clear()
     sql = ("SELECT * FROM nightly_stats")
     cur.execute(sql)
-    print(tabulate(cur, tablefmt="fancy_grid", headers=['Date', 'Day', 'Sales', 'Manager', 'Lunch Sales', 'LBW %', 'Takeaway Sales', 'Grill', 'Prime Accuracy', 'HW', 'Drop +/-']))
+    print(tabulate(cur, tablefmt="fancy_grid",
+                   headers=['Date', 'Day', 'Sales', 'Manager', 'Lunch Sales',
+                            'LBW %', 'Takeaway Sales', 'Grill',
+                            'Prime Accuracy', 'HW', 'Drop +/-']))
     initial_input()
 
 
@@ -156,11 +168,15 @@ def delete_row():
     clear()
     sql = ("SELECT * FROM nightly_stats")
     cur.execute(sql)
-    print(tabulate(cur, tablefmt="fancy_grid", headers=['Date', 'Day', 'Sales', 'Manager', 'Lunch Sales', 'LBW %', 'Takeaway Sales', 'Grill', 'Prime Accuracy', 'HW', 'Drop +/-']))
+    print(tabulate(cur, tablefmt="fancy_grid",
+                   headers=['Date', 'Day', 'Sales', 'Manager', 'Lunch Sales',
+                            'LBW %', 'Takeaway Sales', 'Grill',
+                            'Prime Accuracy', 'HW', 'Drop +/-']))
     del_input = input("Which row (by ID) would you like to delete? ")
     sql = "DELETE FROM nightly_stats WHERE id = %s"
     cur.execute(sql, (del_input,))
-    redirect = input("Would you like to delete another day (d) or return to the main menu (m)? ")
+    redirect = input("Would you like to delete another day (d)"
+                     "or return to the main menu (m)? ")
     if redirect == 'd':
         clear()
         delete_row()
